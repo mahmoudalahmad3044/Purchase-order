@@ -1,0 +1,68 @@
+<!-- result.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purchase order</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="official-page">
+    <div class="watermark">Velvet Furs General Trading</div>
+
+    <header class="header">
+      <div>
+        <h2>Purchase Order</h2>
+        <h3 id="order_Number"></h3>
+      </div>
+      <img id="displayLogo" alt="Company Logo" />
+    </header>
+
+    <section class="details">
+      <p><strong>Company Name:</strong> <span id="companyName"></span></p>
+      <p><strong>Contact Name:</strong> <span id="contactName"></span></p>
+      <p><strong>Contact Number:</strong> <span id="contactNumber"></span></p>
+      <p><strong>Email ID:</strong> <span id="emailID"></span></p>
+      <hr>
+      <p><strong>Orderd By:</strong> <span id="orderdBy"></span></p>
+      <p><strong>Phone:</strong> <span id="phone"></span></p>
+      <p><strong>Email</strong> <span id="email"></span></p>
+      <p><strong>PODate:</strong> <span id="poDate"></span></p>
+      <p><strong>Delivery Date:</strong> <span id="deliveryDate"></span></p>
+      <hr>
+      <table id="ItemsTable" class="items-table">
+        <thead>
+              <tr>
+              <th>#Sr</th>
+              <th>Code</th>
+              <th>Item Description</th>
+              <th>Qty</th>
+              <th>Unit</th>
+              <th>Unit Price</th>
+              <th>Sub Total</th>
+            </tr>
+          </thead>
+          <tbody id="ItemsTableBody">
+
+          </tbody>
+      </table>
+
+      <div class="total-section">
+        <strong>Total Amount:</strong>
+        <span id="currencyType"></span>
+        <span id="total_amount"></span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Dubai, Silicon Oasis, Apricot tower, third floor, office 306</p>
+      <p>Phone +971 4 354 2833, www.velvetfurs.ae</p>
+    </footer>
+
+    <button onclick="window.print()">Print Order</button>
+  </div>
+
+  <script src="result.js"></script>
+</body>
+</html>

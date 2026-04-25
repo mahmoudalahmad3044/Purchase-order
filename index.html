@@ -1,0 +1,145 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ar" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchase Order</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Purchase order</h1>
+      <form id="PurchaseOrderForm">
+        <div class="data-supplier">
+          <div class="input-container">
+            <label>Order Number</label>
+            <input type="text" id="orderNumber" required />
+          </div>
+
+          <div class="input-container">
+            <label>Company name</label>
+            <input type="text" id="companyName" required />
+          </div>
+
+          <div class="input-container">
+            <label>Contact name</label>
+            <input type="text" id="contactName" required />
+          </div>
+
+          <div class="input-container">
+            <label>Contact number</label>
+            <input type="text" id="contactNumber" required />
+          </div>
+
+          <div class="input-container">
+            <label>Email</label>
+            <input type="email" id="emailID" required />
+          </div>
+        </div>
+        <hr>
+        <div class="my-data">
+          <div class="input-container">
+            <label>Orderd by</label>
+            <input type="text" id="orderdBy" required />
+          </div>
+
+          <div class="input-container">
+            <label>Phone</label>
+            <input type="text" id="phone" required />
+          </div>
+
+          <div class="input-container">
+            <label>Email</label>
+            <input type="text" id="email" required />
+          </div>
+
+          <div class="input-container">
+            <label>Purchase order date</label>
+            <input type="date" id="poDate" required />
+          </div>
+
+          <div class="input-container">
+            <label>Delivery date</label>
+            <input type="date" id="deliveryDate" required />
+          </div>
+
+          <div class="input-container">
+            <label>Company logo</label>
+            <input type="file" id="logoUpload" accept="image/*" required />
+          </div>
+        </div>
+
+        <hr>
+
+        <div>
+          <button type="button" onclick="addRow()">Add New Row</button>
+          <button type="button" class="removeRowBtn" onclick="removeRow()">Remove Row</button>
+        </div>
+        
+        <table id="invoiceTable">
+          <thead>
+              <tr>
+              <th>#Sr</th>
+              <th>Code</th>
+              <th>Item Description</th>
+              <th>Qty</th>
+              <th>Unit</th>
+              <th>Unit Price</th>
+              <th>Sub Total</th>
+            </tr>
+          </thead>
+
+          <tbody id="tableBody">
+            <tr>
+              <td>1</td>
+
+              <td>
+                <input type="text" class="codeNum" name="code[]"/>
+              </td>
+
+              <td>
+                <input type="text" class="descriptionItem" name="description[]" />
+            </td>
+
+              <td>
+                <input type="number"  class="qty" min="1" value="1" />
+              </td>
+              
+              <td>
+                <input type="text" class="unitItem"  name="unit[]" />
+              </td>
+            
+            <td>
+                <input type="number"  class="price" min="0" value="0" />
+            </td>
+            
+            <td>
+                <input type="text" class="subtotal" readonly value="0" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<div class="currency">
+        <label>Currency</label>
+        <select name="currency[]" id="currency">
+            <option value="$">$ USD</option>
+            <option value="AED">AED</option>
+            <option value="€">€ EUR</option>
+        </select>
+    </div>
+
+<h3 class="total-amount">
+    Total:
+    <span id="totalAmount">0</span>
+</h3>
+
+<button type="submit">Submit</button>
+</form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
