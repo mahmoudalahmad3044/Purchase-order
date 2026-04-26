@@ -74,7 +74,7 @@ function addRow() {
                 </td>
 
                 <td>
-                    <input type="text" class="descriptionItem" name="description[]">
+                    <textarea type="text" class="descriptionItem" name="description[]"></textarea>
                 </td>
 
                 <td>
@@ -139,4 +139,9 @@ function getItemsArray () {
 
 attachEvents();
 
+const textarea = document.querySelector("textarea");
 
+textarea.addEventListener("input", function () {
+  this.style.height = "auto"; // reset height
+  this.style.height = this.scrollHeight + "px"; // set new height
+});

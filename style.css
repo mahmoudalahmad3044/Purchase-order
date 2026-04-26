@@ -58,7 +58,7 @@ form {
   width: calc(50% - 8px);
 }
 
-input, button {
+input, button , textarea{
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -79,16 +79,60 @@ button:hover {
 
 /* table  */
 table {
-  table-layout: auto;
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   text-align: center;
 }
 
+tr {
+  display: flex;
+  align-items: stretch;
+}
+
+th,
+td {
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+th:nth-child(1),td:nth-child(1) {  
+  width: 5%;
+  min-width: 5%;
+}
+th:nth-child(2),td:nth-child(2) {  
+  width: 10% ;
+  min-width: 10%;
+}
+th:nth-child(3),td:nth-child(3) { 
+   width: 30%;
+}
+th:nth-child(4),td:nth-child(4) { 
+   width: 10%;
+}
+
+th:nth-child(5),td:nth-child(5) { 
+   width: 15%;
+}
+
+th:nth-child(6),td:nth-child(6) { 
+   width: 15%;
+}
+th:nth-child(7),td:nth-child(7) { 
+   width: 15%;
+}
+
+textarea {
+  height: calc(100% - 24px);
+  width: calc(100% - 24px);
+  border-radius: 0;
+}
+
 
 td input {
-  width: 100%;
-  padding: 12px 0 ;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
   border-radius: 0;
   text-align: center;
 }
