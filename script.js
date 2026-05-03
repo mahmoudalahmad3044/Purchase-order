@@ -86,7 +86,7 @@ function addRow() {
                 <td>${rowCount}</td>
 
                 <td>
-                    <input type="text" class="codeNum" name="code[]">
+                    <input type="text" class="codeNum" name="code[]" />
                 </td>
 
                 <td>
@@ -94,7 +94,7 @@ function addRow() {
                 </td>
 
                 <td>
-                    <input type="number" class="qty" min="1" value="1">
+                    <input type="number" step="any" class="qty" min="1" value="1"/>
                 </td>
 
                 <td>
@@ -102,11 +102,11 @@ function addRow() {
                 </td>
 
                 <td>
-                    <input type="text" class="unitItem" name="unit[]">
+                    <input type="text" class="unitItem" name="unit[]" />
                 </td>
 
                 <td>
-                    <input type="number" class="price" min="0" value="0">
+                    <input type="number" class="price" min="0" step="any" value="0" />
                 </td>
 
                 <td>
