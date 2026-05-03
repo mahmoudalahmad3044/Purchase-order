@@ -5,13 +5,20 @@ body {
   background: #f5f7fa;
 }
 
-.container,
-.official-page {
+.container {
   width: 80%;
   margin: 30px auto;
   background: white;
   padding: 30px;
   border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.official-page {
+  width: auto;
+  margin: auto;
+  background: white;
+  padding: 30px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -99,28 +106,62 @@ td {
 }
 th:nth-child(1),td:nth-child(1) {  
   width: 5%;
-  min-width: 5%;
 }
 th:nth-child(2),td:nth-child(2) {  
   width: 10% ;
-  min-width: 10%;
 }
 th:nth-child(3),td:nth-child(3) { 
-   width: 30%;
+   width: 20%;
 }
 th:nth-child(4),td:nth-child(4) { 
    width: 10%;
 }
 
 th:nth-child(5),td:nth-child(5) { 
-   width: 15%;
+   width: 20%;
 }
 
 th:nth-child(6),td:nth-child(6) { 
-   width: 15%;
+   width: 5%;
 }
 th:nth-child(7),td:nth-child(7) { 
    width: 15%;
+}
+
+th:nth-child(8),td:nth-child(8) { 
+   width: 15%;
+}
+
+.words-title {
+  width: 15% !important;
+}
+
+.words-value {
+  width: 50% !important;
+}
+
+.td-amount {
+  width: 20% !important;
+} 
+
+.td-amount-val {
+  width: 15% !important
+}
+
+.weight-col-1 {
+  width: 35% !important;
+}
+
+.weight-col-2 {
+  width: 10% !important;
+}
+
+.weight-col-3 {
+  width: 55% !important;
+}
+
+.stars {
+  width: 100% !important;
 }
 
 textarea {
@@ -136,8 +177,8 @@ td input {
   border-radius: 0;
   text-align: center;
 }
-.currency , .total-amount {
-  text-align: end;
+.currency , .total-amount, .vat-amount {
+  text-align: start;
 }
 
 .removeRowBtn {
@@ -155,6 +196,28 @@ hr {
 .items-table th,.items-table td{
   border: 1px solid #000;
 }
+
+.items-table tr {
+  display: table-row !important;
+}
+
+.amount-in-words {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 6px;
+}
+.amount-in-words input{
+  width: clac(100% - 32px);
+}
+
+.terms-table tr td:first-child,.terms-table tr th:first-child{
+  width: 5% !important;
+}
+
+.terms-table tr td:last-child ,.terms-table tr th:last-child{
+  width: 95% !important;
+}
 /* ---------------------------------------------------------------- */
 
 .header {
@@ -165,8 +228,76 @@ hr {
   padding-bottom: 20px;
 }
 
+.document-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+.vendor-section {
+  table-layout: fixed;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.vendor-section tr td:first-child{
+  box-sizing: border-box;
+  width: 25%;
+  text-align: start;
+}
+
+.vendor-section tr td:last-child{
+  border: solid 1px #000;
+  box-sizing: border-box;
+  width: 75%;
+}
+
+.customer-part {
+  display: flex;
+}
+
+.customer-part table:last-child tr td:first-child {
+  width: 60%;
+}
+
+.customer-part table:last-child tr td:last-child {
+  border: solid 1px #000;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.customer-section {
+  table-layout: fixed;
+  width: 50%;
+  margin-top: 16px;
+}
+
+.customer-section tr td:first-child{
+  box-sizing: border-box;
+  width: 25%;
+  text-align: start;
+}
+
+.customer-section tr td:last-child{
+  box-sizing: border-box;
+  width: 75%;
+  text-align: start;
+}
+
+.purchase-message {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.order-number {
+  border: solid 2px #000;
+  width: fit-content;
+  padding: 4px;
+  font-size: 14px;
+}
+
 .header img {
-  width: 120px;
+  width: 300px;
   height: 120px;
   object-fit: contain;
 }
@@ -195,6 +326,31 @@ hr {
 }
 
 .total-section {
+  text-align: end;
+}
+.po-number {
+  color: #C70000;
+}
+
+.terms-title {
+  font-weight: 600;
+}
+
+.list-conditions {
+  list-style: none;
+  counter-reset: alphabet;
+  padding-left: 0;
+}
+
+.list-conditions li {
+  counter-increment: alphabet;
+}
+
+.list-conditions li::before {
+  content: counter(alphabet, lower-alpha) ") ";
+}
+
+.stamp {
   text-align: end;
 }
 

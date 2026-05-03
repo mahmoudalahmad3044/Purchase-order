@@ -14,44 +14,64 @@
         <div class="data-supplier">
           <div class="input-container">
             <label>Order Number</label>
-            <input type="text" id="orderNumber" required />
+            <input type="text" id="orderNumber" value="VF-PR-008-26" required />
           </div>
 
           <div class="input-container">
             <label>Company name</label>
-            <input type="text" id="companyName" required />
+            <input
+              type="text"
+              id="companyName"
+              value="YEMEN AGRO GOR TRADE"
+              required
+            />
           </div>
 
           <div class="input-container">
             <label>Contact name</label>
-            <input type="text" id="contactName" required />
+            <input type="text" id="contactName" value="MR.SADIQ" required />
           </div>
 
           <div class="input-container">
             <label>Contact number</label>
-            <input type="text" id="contactNumber" required />
+            <input
+              type="text"
+              id="contactNumber"
+              value="+967 772 222 459"
+              required
+            />
           </div>
 
           <div class="input-container">
             <label>Email</label>
-            <input type="email" id="emailID" required />
+            <input
+              type="email"
+              id="emailID"
+              value="example@gmail.com"
+              required
+            />
           </div>
         </div>
-        <hr>
+        <hr />
         <div class="my-data">
           <div class="input-container">
             <label>Orderd by</label>
-            <input type="text" id="orderdBy" required />
+            <input
+              type="text"
+              value="Mr.Mohammed Qasem"
+              id="orderdBy"
+              required
+            />
           </div>
 
           <div class="input-container">
             <label>Phone</label>
-            <input type="text" id="phone" required />
+            <input type="text" id="phone" value="+971 523 433 321" required />
           </div>
 
           <div class="input-container">
             <label>Email</label>
-            <input type="text" id="email" required />
+            <input type="text" id="email" value="mohammed@gmail.com" required />
           </div>
 
           <div class="input-container">
@@ -70,20 +90,23 @@
           </div>
         </div>
 
-        <hr>
+        <hr />
 
         <div>
           <button type="button" onclick="addRow()">Add New Row</button>
-          <button type="button" class="removeRowBtn" onclick="removeRow()">Remove Row</button>
+          <button type="button" class="removeRowBtn" onclick="removeRow()">
+            Remove Row
+          </button>
         </div>
-        
+
         <table id="invoiceTable">
           <thead>
-              <tr>
+            <tr>
               <th>#Sr</th>
               <th>Code</th>
               <th>Item Description</th>
               <th>Qty</th>
+              <th>Total Weight</th>
               <th>Unit</th>
               <th>Unit Price</th>
               <th>Sub Total</th>
@@ -95,51 +118,144 @@
               <td>1</td>
 
               <td>
-                <input type="text" class="codeNum" name="code[]"/>
+                <input type="text" class="codeNum" name="code[]" />
               </td>
 
               <td>
-                <textarea type="text" class="descriptionItem" name="description[]"></textarea>
-            </td>
+                <textarea
+                  type="text"
+                  class="descriptionItem"
+                  name="description[]"
+                ></textarea>
+              </td>
 
               <td>
-                <input type="number"  class="qty" min="1" step="any" value="1" />
+                <input type="number" class="qty" min="1" step="any" value="1" />
               </td>
-              
+
               <td>
-                <input type="text" class="unitItem"  name="unit[]" />
+                <input
+                  type="number"
+                  class="total-weight"
+                  min="1"
+                  step="any"
+                  value="1"
+                />
               </td>
-            
-            <td>
-                <input type="number" step="any"  class="price" min="0" value="0" />
-            </td>
-            
-            <td>
+
+              <td>
+                <input type="text" class="unitItem" name="unit[]" />
+              </td>
+
+              <td>
+                <input
+                  type="number"
+                  class="price"
+                  min="0"
+                  value="0"
+                  step="any"
+                />
+              </td>
+
+              <td>
                 <input type="text" class="subtotal" readonly value="0" />
-            </td>
-        </tr>
-    </tbody>
-</table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-<br>
-<div class="currency">
-        <label>Currency</label>
-        <select name="currency[]" id="currency">
+        <br />
+        <div class="currency">
+          <label>Currency</label>
+          <select name="currency[]" id="currency">
             <option value="$">$ USD</option>
             <option value="AED">AED</option>
             <option value="€">€ EUR</option>
-        </select>
+          </select>
+        </div>
+
+        <h4 class="total-amount">
+          Amount:
+          <span id="totalAmount">0</span>
+        </h4>
+
+        <h4 class="vat-amount">
+          VAT 5%:
+          <input id="vatAmount" type="number" step="any" value="0" />
+        </h4>
+
+        <h4 class="total-amount-2">
+          Total Amount:
+          <span id="totalAmount2">0</span>
+        </h4>
+
+        <h4 class="amount-in-words">
+          <span>Amount in words:</span>
+          <input id="amountInWords" type="text" />
+        </h4>
+
+        <div>
+          <button type="button" onclick="addCondition()">Add New Condition</button>
+          <button type="button" class="removeRowBtn" onclick="removeCondition()">
+            Remove Condition
+          </button>
+        </div>
+
+        <table class="terms-table">
+          <thead>
+            <tr>
+              <th>#Sr</th>
+              <th>Terms and Conditions:</th>
+            </tr>
+          </thead>
+          <tbody id="termsBody">
+            <tr>
+              <td>1</td>
+              <td>
+                <textarea
+                  type="text"
+                  class="descriptionItem"
+                  name="terms[]"
+                >all orders must be delivered as mentioned in the PO above</textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <textarea
+                  type="text"
+                  class="descriptionItem"
+                  name="terms[]"
+                >Invoice should be issued under the name of the LPO issuer</textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>
+                <textarea
+                  type="text"
+                  class="descriptionItem"
+                  name="terms[]"
+                >All Goods must received in good shape and condition (Grade A as Agreed)</textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                <textarea
+                  type="text"
+                  class="descriptionItem"
+                  name="terms[]"
+                >Payment Term - CREDIT</textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button type="submit">Submit</button>
+      </form>
     </div>
 
-<h3 class="total-amount">
-    Total:
-    <span id="totalAmount">0</span>
-</h3>
-
-<button type="submit">Submit</button>
-</form>
-</div>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

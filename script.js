@@ -1,5 +1,16 @@
 // script.js
 const form = document.getElementById('PurchaseOrderForm');
+const textAreaHandler = () => {
+document.querySelectorAll("textarea").forEach(textarea => {
+  const resize = () => {
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
+  };
+
+  textarea.addEventListener("input", resize);
+  resize();
+});
+}
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -22,7 +33,11 @@ form.addEventListener('submit', function (e) {
             logo: logoData,
             itemsArray: getItemsArray(),
             currency: document.getElementById('currency').value,
-            totalAmount: document.getElementById('totalAmount').textContent
+            totalAmount: document.getElementById('totalAmount').textContent,
+            vatAmount: document.getElementById('vatAmount').value,
+            Total: document.getElementById('totalAmount2').textContent,
+            amountInWords: document.getElementById('amountInWords').value,
+            conditions: getConditionsArray()
         };
 
         localStorage.setItem('purchaseOrderData', JSON.stringify(data));
@@ -58,6 +73,7 @@ function calculateTotalAmount() {
     });
 
     document.getElementById('totalAmount').innerText = total.toFixed(2);
+    return total
 }
 
 function addRow() {
@@ -82,6 +98,10 @@ function addRow() {
                 </td>
 
                 <td>
+                    <input type="number"  class="total-weight" min="1" step="any" value="1" />
+                </td>
+
+                <td>
                     <input type="text" class="unitItem" name="unit[]">
                 </td>
 
@@ -101,7 +121,10 @@ function addRow() {
 
 function removeRow() {
     const tableBody = document.getElementById('tableBody');
-    tableBody.removeChild(tableBody.lastChild)
+    
+    if (tableBody.lastElementChild) {
+        tableBody.removeChild(tableBody.lastElementChild);
+    }
 }
 
 function attachEvents() {
@@ -112,6 +135,8 @@ function attachEvents() {
         qty.oninput = () => calculateRow(row);
         price.oninput = () => calculateRow(row);
     });
+
+    textAreaHandler()
 }
 
 function getItemsArray () {
@@ -119,6 +144,7 @@ function getItemsArray () {
     document.querySelectorAll('#tableBody tr').forEach(row => {
         const codeNum = row.querySelector('.codeNum').value
         const qty = row.querySelector('.qty').value
+        const totalWeight = row.querySelector('.total-weight').value
         const price = row.querySelector('.price').value
         const description = row.querySelector('.descriptionItem').value
         const unit = row.querySelector('.unitItem').value
@@ -127,6 +153,7 @@ function getItemsArray () {
         items.push({
             codeNum,
             qty,
+            totalWeight,
             price,
             description,
             unit,
@@ -139,9 +166,53 @@ function getItemsArray () {
 
 attachEvents();
 
-const textarea = document.querySelector("textarea");
 
-textarea.addEventListener("input", function () {
-  this.style.height = "auto"; // reset height
-  this.style.height = this.scrollHeight + "px"; // set new height
-});
+
+textAreaHandler()
+
+const vat = document.getElementById('vatAmount')
+vat.addEventListener('input',()=> {
+    const totalAmount = document.getElementById('totalAmount2')
+    totalAmount.innerText = calculateTotalAmount() + Number.parseFloat(vat.value||0)
+})
+
+function addCondition() {
+    const tableBody = document.getElementById('termsBody');
+    const rowCount = tableBody.rows.length + 1;
+
+    const newRow = document.createElement('tr');
+
+    newRow.innerHTML = `
+        <td>${rowCount}</td>
+
+        <td>
+                <textarea
+                  type="text"
+                  class="descriptionItem"
+                  name="terms[]"
+                ></textarea>
+        </td>
+    `
+
+    tableBody.appendChild(newRow)
+    textAreaHandler()
+}
+
+function removeCondition() {
+    const tableBody = document.getElementById('termsBody');
+    
+    if (tableBody.lastElementChild) {
+        tableBody.removeChild(tableBody.lastElementChild);
+    }
+}
+
+function getConditionsArray () {
+     let items = []
+    document.querySelectorAll('#termsBody tr').forEach(row => {
+        const condition = row.querySelector('.descriptionItem').value
+
+        items.push(condition)
+    });
+
+    return items
+}

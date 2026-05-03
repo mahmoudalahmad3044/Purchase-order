@@ -12,25 +12,71 @@
     <div class="watermark">Velvet Furs General Trading</div>
 
     <header class="header">
-      <div>
-        <h2>Purchase Order</h2>
-        <h3 id="order_Number"></h3>
-      </div>
       <img id="displayLogo" alt="Company Logo" />
     </header>
 
     <section class="details">
-      <p><strong>Company Name:</strong> <span id="companyName"></span></p>
-      <p><strong>Contact Name:</strong> <span id="contactName"></span></p>
-      <p><strong>Contact Number:</strong> <span id="contactNumber"></span></p>
-      <p><strong>Email ID:</strong> <span id="emailID"></span></p>
-      <hr>
-      <p><strong>Orderd By:</strong> <span id="orderdBy"></span></p>
-      <p><strong>Phone:</strong> <span id="phone"></span></p>
-      <p><strong>Email</strong> <span id="email"></span></p>
-      <p><strong>PODate:</strong> <span id="poDate"></span></p>
-      <p><strong>Delivery Date:</strong> <span id="deliveryDate"></span></p>
-      <hr>
+      <h2 class="document-title">Purchase Order</h2>
+      <div id="order_Number" class="order-number"></div>
+      <table class="vendor-section">
+        <tbody>
+          <tr>
+            <td>Company Name:</td>
+            <td id="companyName"></td>
+          </tr>
+          <tr>
+            <td>Contact Name:</td>
+            <td id="contactName"></td>
+          </tr>
+          <tr>
+            <td>Contact Number:</td>
+            <td id="contactNumber"></td>
+          </tr>
+          <tr>
+            <td>Email ID:</td>
+            <td id="emailID"></td>
+          </tr>
+        </tbody>  
+      </table>
+
+      <div class="customer-part">
+      <table class="customer-section">
+        <tbody>
+          <tr>
+            <td>Orderd By:</td>
+            <td id="orderdBy"></td>
+          </tr>
+          <tr>
+            <td>Phone:</td>
+            <td id="phone"></td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td id="email"></td>
+          </tr>
+      </table>
+
+      <table class="customer-section">
+        <tbody>
+          <tr>
+            <td>PODate:</td>
+            <td id="poDate"></td>
+          </tr>
+          <tr>
+            <td>PO Number:</td>
+            <td id="poNumber" class="po-number"></td>
+          </tr>
+          <tr>
+            <td>Delivery Date:</td>
+            <td id="deliveryDate"></td>
+          </tr>
+      </table>      
+      </div>
+
+      <div class="purchase-message">
+        Dear Sir,<br>
+        We would like to order the following items. Do not hesitate to contact us if there is any question.
+      </div>
       <table id="ItemsTable" class="items-table">
         <thead>
               <tr>
@@ -38,6 +84,7 @@
               <th>Code</th>
               <th>Item Description</th>
               <th>Qty</th>
+              <th>Total Weight</th>
               <th>Unit</th>
               <th>Unit Price</th>
               <th>Sub Total</th>
@@ -47,12 +94,12 @@
 
           </tbody>
       </table>
+      <div class="terms-title">Terms And Conditions:</div>
+      <ul id="listConditions" class="list-conditions">
 
-      <div class="total-section">
-        <strong>Total Amount:</strong>
-        <span id="currencyType"></span>
-        <span id="total_amount"></span>
-      </div>
+      </ul>
+
+      <div class="stamp">VELVET FURS GENERAL TRADING L.L.C</div>
     </section>
 
     <footer class="footer">
