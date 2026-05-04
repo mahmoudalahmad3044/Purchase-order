@@ -1,5 +1,7 @@
 // script.js
 const form = document.getElementById('PurchaseOrderForm');
+const totalAmount = document.getElementById('totalAmount2')
+const vat = document.getElementById('vatAmount')
 const textAreaHandler = () => {
 document.querySelectorAll("textarea").forEach(textarea => {
   const resize = () => {
@@ -73,6 +75,7 @@ function calculateTotalAmount() {
     });
 
     document.getElementById('totalAmount').innerText = total.toFixed(2);
+    totalAmount.innerText = total + Number.parseFloat(vat.value||0)
     return total
 }
 
@@ -170,9 +173,7 @@ attachEvents();
 
 textAreaHandler()
 
-const vat = document.getElementById('vatAmount')
 vat.addEventListener('input',()=> {
-    const totalAmount = document.getElementById('totalAmount2')
     totalAmount.innerText = calculateTotalAmount() + Number.parseFloat(vat.value||0)
 })
 
