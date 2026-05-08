@@ -15,10 +15,6 @@ if (data) {
   document.getElementById('poDate').textContent = data.poDate;
   document.getElementById('deliveryDate').textContent = data.deliveryDate;
   document.getElementById('displayLogo').src = data.logo;
-  // document.querySelector('.currency').textContent = data.currency
-  // document.getElementById('total_amount').textContent = data.totalAmount || 0
-  // document.getElementById('vatAmount').textContent = data.vatAmount || 0
-  // document.getElementById('TotalAmount2').textContent = Number.parseFloat(data.totalAmount) + Number.parseFloat(data.vatAmount)
   const itemsTableBody =  document.getElementById('ItemsTableBody')
   const items = data.itemsArray || []
   items.forEach((element,index) => {

@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="official-page">
-    <div class="watermark">Velvet Furs General Trading</div>
+  <div class="watermark">Velvet Furs General Trading</div>
+  <table class="official-page">
 
-    <header class="header">
-      <img id="displayLogo" alt="Company Logo" />
-    </header>
+    <thead class="header">
+      <tr>
+        <th>
+          <img id="displayLogo" alt="Company Logo" />
+        </th>
+      </tr>
+    </thead>
 
-    <section class="details">
+    <tbody class="details">
+      <tr>
+        <td colspan="3">
       <h2 class="document-title">Purchase Order</h2>
       <div id="order_Number" class="order-number"></div>
       <table class="vendor-section">
@@ -100,15 +106,20 @@
       </ul>
 
       <div class="stamp">VELVET FURS GENERAL TRADING L.L.C</div>
-    </section>
-
-    <footer class="footer">
+    </tbody>
+      </td>
+      </tr>
+    <tfoot class="footer">
+      <tr>
+        <td>
       <p>Dubai, Silicon Oasis, Apricot tower, third floor, office 306</p>
       <p>Phone +971 4 354 2833, www.velvetfurs.ae</p>
-    </footer>
+        </td>
+      </tr>
+    </tfoot>
 
-    <button onclick="window.print()">Print Order</button>
-  </div>
+  </table>
+  <button onclick="window.print()">Print Order</button>
 
   <script src="result.js"></script>
 </body>

@@ -14,13 +14,6 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-.official-page {
-  width: auto;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
 
 h1, h2, h3 {
   text-align: center;
@@ -224,8 +217,59 @@ hr {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 20px;
+}
+
+.header > tr {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.official-page {
+  margin: auto;
+  background: white;
+  text-align: start;
+}
+
+.official-page tbody tr td,.official-page thead tr td, .official-page tfoot tr td {
+  width: 100%;
+}
+
+@media print {
+  .footer {
+    display: none !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 0.2in 0.5in 1.25in 0.5in;
+
+    @bottom-center {
+      content: "Dubai, Silicon Oasis, Apricot tower, third floor, office 306\A Phone +971 4 354 2833, www.velvetfurs.ae";
+      white-space: pre;
+      text-align: center;
+      border-top: 2px solid #ddd;
+    }
+  }
+  .official-page {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    page-break-inside: auto;
+  }
+
+  .official-page thead {
+    display: table-header-group;
+  }
+
+  .official-page tfoot {
+    display: table-footer-group;
+  }
+
+  .official-page tbody {
+    display: table-row-group;
+  }
 }
 
 .document-title {
